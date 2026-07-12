@@ -555,53 +555,70 @@
         <div class="contact-form-side glass-card" style="padding:2.2rem; position: relative; min-height: 450px;">
 
           <!-- Success State (Hidden by default) -->
-          <div id="contact-success-state" style="display:none; flex-direction:column; align-items:center; justify-content:center; height: 100%; min-height: 350px; text-align:center;">
-            <div class="handshake-3d" style="font-size: 6rem; margin-bottom: 1.5rem; display: inline-block; transform-style: preserve-3d; animation: shake3d 1.5s infinite ease-in-out alternate;">🤝</div>
-            <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--ink); margin-bottom: 0.5rem;">Thank You!</h3>
-            <p style="font-size:0.95rem; color:var(--muted); line-height:1.6; max-width: 250px; margin: 0 auto;">Your message was sent successfully. We'll be in touch soon.</p>
+          <div id="contact-success-state"
+            style="display:none; flex-direction:column; align-items:center; justify-content:center; height: 100%; min-height: 350px; text-align:center;">
+            <div class="handshake-3d"
+              style="font-size: 6rem; margin-bottom: 1.5rem; display: inline-block; transform-style: preserve-3d; animation: shake3d 1.5s infinite ease-in-out alternate;">
+              🤝</div>
+            <h3
+              style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--ink); margin-bottom: 0.5rem;">
+              Thank You!</h3>
+            <p style="font-size:0.95rem; color:var(--muted); line-height:1.6; max-width: 250px; margin: 0 auto;">Your
+              message was sent successfully. We'll be in touch soon.</p>
             <style>
               @keyframes shake3d {
-                0% { transform: perspective(500px) rotateY(-25deg) rotateZ(-5deg) scale(1); }
-                50% { transform: perspective(500px) rotateY(25deg) rotateZ(5deg) scale(1.15); }
-                100% { transform: perspective(500px) rotateY(-25deg) rotateZ(-5deg) scale(1); }
+                0% {
+                  transform: perspective(500px) rotateY(-25deg) rotateZ(-5deg) scale(1);
+                }
+
+                50% {
+                  transform: perspective(500px) rotateY(25deg) rotateZ(5deg) scale(1.15);
+                }
+
+                100% {
+                  transform: perspective(500px) rotateY(-25deg) rotateZ(-5deg) scale(1);
+                }
               }
             </style>
           </div>
 
           <!-- Form Container -->
           <div id="contact-form-container">
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:.3rem;color:var(--ink)">Send Us a Message</h3>
-            <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5">We'd love to hear about your vision</p>
+            <h3
+              style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:.3rem;color:var(--ink)">
+              Send Us a Message</h3>
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5">We'd love to hear about
+              your vision</p>
             <form id="contact-section-form" onsubmit="event.preventDefault();">
-            <div class="form-row">
-              <div>
-                <label class="form-label" for="contact-first-name">First name</label>
-                <input class="form-input" type="text" id="contact-first-name" placeholder="Arjun" required>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="contact-first-name">First name</label>
+                  <input class="form-input" type="text" id="contact-first-name" placeholder="Arjun" required>
+                </div>
+                <div>
+                  <label class="form-label" for="contact-last-name">Last name</label>
+                  <input class="form-input" type="text" id="contact-last-name" placeholder="Sharma" required>
+                </div>
               </div>
-              <div>
-                <label class="form-label" for="contact-last-name">Last name</label>
-                <input class="form-input" type="text" id="contact-last-name" placeholder="Sharma" required>
-              </div>
-            </div>
-            <label class="form-label" for="contact-email">Email</label>
-            <input class="form-input" type="email" id="contact-email" placeholder="hello@example.com" required>
-            <label class="form-label" for="contact-phone">Phone</label>
-            <input class="form-input" type="tel" id="contact-phone" placeholder="+91 98765 43210">
-            <label class="form-label" for="contact-project-type">Project type</label>
-            <select class="form-input" id="contact-project-type">
-              <option>Corporate Offices</option>
-              <option>Cafes & Restaurants</option>
-              <option>Schools & Education</option>
-              <option>Hospitals & Clinics</option>
-              <option>Hotels & Resorts</option>
-              <option>Residential Interiors</option>
-              <option>Outdoor & Public Art</option>
-            </select>
-            <label class="form-label" for="contact-message">Your message</label>
-            <textarea class="form-input" id="contact-message" rows="4" placeholder="Describe your wall idea..."
-              style="resize:vertical"></textarea>
-            <button class="form-submit" id="btn-contact-submit" type="submit">Send Message →</button>
-          </form>
+              <label class="form-label" for="contact-email">Email</label>
+              <input class="form-input" type="email" id="contact-email" placeholder="hello@example.com" required>
+              <label class="form-label" for="contact-phone">Phone</label>
+              <input class="form-input" type="tel" id="contact-phone" placeholder="+91 98765 43210">
+              <label class="form-label" for="contact-project-type">Project type</label>
+              <select class="form-input" id="contact-project-type">
+                <option>Corporate Offices</option>
+                <option>Cafes & Restaurants</option>
+                <option>Schools & Education</option>
+                <option>Hospitals & Clinics</option>
+                <option>Hotels & Resorts</option>
+                <option>Residential Interiors</option>
+                <option>Outdoor & Public Art</option>
+              </select>
+              <label class="form-label" for="contact-message">Your message</label>
+              <textarea class="form-input" id="contact-message" rows="4" placeholder="Describe your wall idea..."
+                style="resize:vertical"></textarea>
+              <button class="form-submit" id="btn-contact-submit" type="submit">Send Message →</button>
+            </form>
           </div>
         </div>
       </div>
@@ -616,10 +633,10 @@
         <div class="about-content">
           <div class="sec-label">Our Story</div>
           <h2 class="sec-title">About ashmija in color</h2>
-          <p class="sec-sub" style="max-width:500px;margin-top:.8rem">Founded in <strong>2026</strong> in <strong>Kallakurichi</strong>, <strong>Ashmija in Color</strong> was born from a simple belief: <strong>every wall has the power to tell a story</strong>. What began as a passion for transforming blank spaces into meaningful works of art has evolved into a creative studio dedicated to delivering exceptional mural experiences.</p>
-          <p class="sec-sub" style="max-width:500px;margin-top:1rem">Our team of talented artists and designers specializes in custom wall murals, artistic installations, commercial artwork, and creative interior transformations. Every project is thoughtfully crafted to reflect the client's vision, brand identity, and the unique character of the space.</p>
-          <p class="sec-sub" style="max-width:500px;margin-top:1rem">From homes and offices to hotels, cafés, schools, and corporate environments, we create murals that inspire, engage, and leave a lasting impression. Whether it's a bold abstract design, a nature-inspired masterpiece, or a custom concept, we combine creativity, craftsmanship, and attention to detail to bring every wall to life.</p>
-          <p class="sec-sub" style="max-width:500px;margin-top:1rem">At <strong>Ashmija in Color</strong>, we don't just paint walls—we create experiences that connect people, elevate spaces, and tell unforgettable stories through art.</p>
+          <p class="sec-sub" style="max-width:520px;margin-top:.8rem;line-height:1.7">Founded in <strong>2026</strong> in <strong>Kallakurichi</strong>, <strong>Ashmija in Color</strong> was born from a simple belief: <strong>every wall has the power to tell a story</strong>. What began as a passion for transforming blank spaces into meaningful works of art has evolved into a creative studio dedicated to delivering exceptional mural experiences.</p>
+          <p class="sec-sub" style="max-width:520px;margin-top:1rem;line-height:1.7">Our team of talented artists and designers specializes in custom wall murals, artistic installations, commercial artwork, and creative interior transformations. Every project is thoughtfully crafted to reflect the client's vision, brand identity, and the unique character of the space.</p>
+          <p class="sec-sub" style="max-width:520px;margin-top:1rem;line-height:1.7">From homes and offices to hotels, cafés, schools, and corporate environments, we create murals that inspire, engage, and leave a lasting impression. Whether it's a bold abstract design, a nature-inspired masterpiece, or a custom concept, we combine creativity, craftsmanship, and attention to detail to bring every wall to life.</p>
+          <p class="sec-sub" style="max-width:520px;margin-top:1rem;line-height:1.7">At <strong>Ashmija in Color</strong>, we don't just paint walls—we create experiences that connect people, elevate spaces, and tell unforgettable stories through art.</p>
           <div class="about-values">
             <div class="about-value-item glass-subtle">
               <div class="why-icon-wrap"><i class="ti ti-heart" aria-hidden="true"></i></div>
@@ -727,10 +744,12 @@
         <!-- LEFT: Info Card (35%) -->
         <div class="faq-info-card reveal">
           <div class="faq-info-card__inner">
-            <div class="faq-info-art" style="perspective: 800px; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; position: relative;">
+            <div class="faq-info-art"
+              style="perspective: 800px; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; position: relative;">
 
               <!-- 3D Style Glowing SVG Bulb (No Background) -->
-              <svg width="80" height="100" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" style="animation: floatBulb 4s infinite ease-in-out; filter: drop-shadow(0 10px 15px rgba(230,170,40,0.4));">
+              <svg width="80" height="100" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg"
+                style="animation: floatBulb 4s infinite ease-in-out; filter: drop-shadow(0 10px 15px rgba(230,170,40,0.4));">
                 <defs>
                   <radialGradient id="bulbGlow" cx="50%" cy="40%" r="50%">
                     <stop offset="0%" stop-color="#fff5cc" />
@@ -752,15 +771,19 @@
                 </defs>
 
                 <!-- Bulb Glass Body -->
-                <path d="M 50 5 C 20 5 10 25 10 45 C 10 65 30 75 35 90 L 65 90 C 70 75 90 65 90 45 C 90 25 80 5 50 5 Z" fill="url(#bulbGlow)" opacity="0.9" />
+                <path d="M 50 5 C 20 5 10 25 10 45 C 10 65 30 75 35 90 L 65 90 C 70 75 90 65 90 45 C 90 25 80 5 50 5 Z"
+                  fill="url(#bulbGlow)" opacity="0.9" />
 
                 <!-- Highlights to make it look 3D and glossy -->
-                <path d="M 40 10 C 25 15 15 30 15 45 C 15 55 20 60 25 65 C 20 50 30 20 50 15 C 45 12 42 11 40 10 Z" fill="#ffffff" opacity="0.6" filter="blur(2px)" />
-                <path d="M 80 40 C 85 30 80 15 70 10 C 80 20 75 40 65 55 C 75 50 82 45 80 40 Z" fill="#ffffff" opacity="0.4" filter="blur(3px)" />
+                <path d="M 40 10 C 25 15 15 30 15 45 C 15 55 20 60 25 65 C 20 50 30 20 50 15 C 45 12 42 11 40 10 Z"
+                  fill="#ffffff" opacity="0.6" filter="blur(2px)" />
+                <path d="M 80 40 C 85 30 80 15 70 10 C 80 20 75 40 65 55 C 75 50 82 45 80 40 Z" fill="#ffffff"
+                  opacity="0.4" filter="blur(3px)" />
 
                 <!-- Inner Filament Support -->
                 <path d="M 45 90 L 45 65 M 55 90 L 55 65" stroke="#cc8800" stroke-width="2" />
-                <path d="M 45 65 Q 50 50 55 65" stroke="url(#filament)" stroke-width="3" fill="none" style="filter: drop-shadow(0 0 5px #ffaa00);" />
+                <path d="M 45 65 Q 50 50 55 65" stroke="url(#filament)" stroke-width="3" fill="none"
+                  style="filter: drop-shadow(0 0 5px #ffaa00);" />
                 <circle cx="50" cy="58" r="4" fill="#ffffff" style="filter: drop-shadow(0 0 8px #ffffff);" />
 
                 <!-- Metal Base (Screw threads) -->
@@ -776,8 +799,17 @@
 
               <style>
                 @keyframes floatBulb {
-                  0%, 100% { transform: translateY(0); filter: drop-shadow(0 10px 15px rgba(230,170,40,0.3)); }
-                  50% { transform: translateY(-8px); filter: drop-shadow(0 20px 25px rgba(230,170,40,0.7)); }
+
+                  0%,
+                  100% {
+                    transform: translateY(0);
+                    filter: drop-shadow(0 10px 15px rgba(230, 170, 40, 0.3));
+                  }
+
+                  50% {
+                    transform: translateY(-8px);
+                    filter: drop-shadow(0 20px 25px rgba(230, 170, 40, 0.7));
+                  }
                 }
               </style>
             </div>
