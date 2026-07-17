@@ -786,6 +786,29 @@ footer {
   box-shadow: 0 0 0 3px rgba(184, 147, 58, 0.1);
 }
 
+.review-form input[type="file"] {
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px dashed #d7cec0;
+  cursor: pointer;
+}
+
+.review-form input[type="file"]::file-selector-button {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-right: 0.8rem;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.review-form input[type="file"]::file-selector-button:hover {
+  opacity: 0.8;
+}
+
 .review-form input::placeholder,
 .review-form textarea::placeholder {
   color: var(--beige3);
@@ -855,6 +878,13 @@ footer {
     width: 94%;
     max-width: none;
     border-radius: 16px;
+    top: 5% !important;
+    transform: translate(-50%, 0) scale(0.96) !important;
+    max-height: 90vh;
+  }
+  
+  .review-modal.creator-modal-container.active {
+    transform: translate(-50%, 0) scale(1) !important;
   }
 
   .review-modal .modal-body-content.single-col {
