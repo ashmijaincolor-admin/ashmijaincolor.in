@@ -1939,7 +1939,7 @@ tr.sortable-ghost  { opacity: 0.35; }
 }
 
 @media (max-width: 480px) {
-  .stats-grid { grid-template-columns: repeat(4, minmax(170px, 1fr)); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 0; overflow-x: visible; }
 
   .modal-overlay {
     align-items: flex-start;
