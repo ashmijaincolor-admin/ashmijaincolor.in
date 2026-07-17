@@ -2870,14 +2870,6 @@ function initRatingModal() {
     });
   }
 
- document.addEventListener("DOMContentLoaded", () => {
-    initContactForm();
-    initRatingModal();
-    init3DGallery();
-    initDynamicBackground();
-    observeGalleryGrid();
-    initRealtimeGallery();
-});
 function initContactForm() {
   const contactForm = document.getElementById('contact-section-form');
   // This page also loads shared/admin scripts that can attach a contact handler.
@@ -2963,6 +2955,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initContactForm();
   initRatingModal();
+  observeGalleryGrid();
   init3DGallery();
   initDynamicBackground();
   initRealtimeGallery();

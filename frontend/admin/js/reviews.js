@@ -172,13 +172,12 @@
     return `
       <tr data-id="${review.id}">
         <td style="text-align:center;"><img src="${review.avatar_url || generateMonogram(review.name || 'A')}" alt="${escHtml(review.name)}" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid rgba(184,147,58,0.3);"></td>
-        <td style="text-align:center;">${rating}</td>
         <td>${name}</td>
         <td>${company}</td>
         <td>${locationValue}</td>
         <td>${parsedReview.workImage ? `<div class="review-work-photo"><img src="${escHtml(parsedReview.workImage)}" alt="${escHtml(review.name || 'Client')} project work" loading="lazy"><span class="review-work-photo-location">${locationValue}</span></div>` : `<span style="color:var(--muted);">—</span>`}</td>
         <td title="${reviewText}">${previewText}</td>
-        <td>${review.rating != null ? escHtml(String(review.rating)) : '0'}</td>
+        <td style="text-align:center; white-space:nowrap;">${rating}</td>
         <td>${featured}</td>
         <td>${statusBadge}</td>
         <td>${sortValue}</td>
