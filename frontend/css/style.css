@@ -3526,6 +3526,12 @@ footer {
   font-weight: 300;
 }
 
+@media (max-width: 768px) {
+  .sec-title-main { font-size: 2.1rem; }
+  .sec-title-sub { font-size: 1.3rem; }
+  .creators-lead-desc { font-size: 0.88rem; }
+}
+
 .btn-read-more {
   padding: 0.8rem 1.8rem;
   background-color: var(--gold);
