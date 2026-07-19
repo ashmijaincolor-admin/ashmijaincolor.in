@@ -3631,4 +3631,99 @@ function initTeamAnimations() {
 window.addEventListener('load', () => {
   initTeamMouseParallax();
   initTeamAnimations();
+  
+  // Hero Carousel Dots Logic
+  const heroCardsRow = document.querySelector('.hero-cards-row');
+  const heroDots = document.querySelectorAll('.hero-carousel-dots .dot');
+  const heroCards = document.querySelectorAll('.hero-cards-row .hero-card');
+
+  if (heroCardsRow && heroDots.length > 0 && heroCards.length > 0) {
+    let currentIndex = 0;
+    const totalCards = heroCards.length;
+    let autoPlayInterval;
+
+    const updateActiveClasses = (index) => {
+      heroDots.forEach((dot, i) => {
+        if (i === index) dot.classList.add('active');
+        else dot.classList.remove('active');
+      });
+      heroCards.forEach((card, i) => {
+        if (i === index) card.classList.add('active');
+        else card.classList.remove('active');
+      });
+    };
+
+    // Scroll event listener for updating active dot on mobile/tablet
+    heroCardsRow.addEventListener('scroll', () => {
+      const scrollLeft = heroCardsRow.scrollLeft;
+      const cardWidth = heroCards[0].offsetWidth;
+      const gapMatch = window.getComputedStyle(heroCardsRow).gap.match(/(\d+)/);
+      const gap = gapMatch ? parseInt(gapMatch[0]) : 16;
+      
+      const index = Math.round(scrollLeft / (cardWidth + gap));
+      currentIndex = index; // sync with auto-play
+      updateActiveClasses(index);
+    });
+    
+    // Initialize first card as active on load
+    updateActiveClasses(0);
+
+    // Auto-play logic
+    const cycleNextCard = () => {
+      currentIndex = (currentIndex + 1) % totalCards;
+      
+      if (window.innerWidth <= 900) {
+        // On mobile/tablet, scrolling triggers the class update via the scroll listener
+        const cardWidth = heroCards[0].offsetWidth;
+        const gapMatch = window.getComputedStyle(heroCardsRow).gap.match(/(\d+)/);
+        const gap = gapMatch ? parseInt(gapMatch[0]) : 16;
+        
+        heroCardsRow.scrollTo({
+          left: currentIndex * (cardWidth + gap),
+          behavior: 'smooth'
+        });
+      } else {
+        // On desktop, directly update classes
+        updateActiveClasses(currentIndex);
+      }
+    };
+
+    const startAutoPlay = () => {
+      heroCardsRow.classList.add('auto-playing');
+      autoPlayInterval = setInterval(cycleNextCard, 2500); // Change every 2.5 seconds
+    };
+
+    const stopAutoPlay = () => {
+      heroCardsRow.classList.remove('auto-playing');
+      clearInterval(autoPlayInterval);
+    };
+
+    // Start by default
+    startAutoPlay();
+
+    // Pause on interactions
+    heroCardsRow.addEventListener('mouseenter', stopAutoPlay);
+    heroCardsRow.addEventListener('mouseleave', startAutoPlay);
+    heroCardsRow.addEventListener('touchstart', stopAutoPlay, {passive: true});
+    heroCardsRow.addEventListener('touchend', startAutoPlay);
+
+    // Click event for dots to scroll the row or set active card
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        if (window.innerWidth <= 900) {
+          const cardWidth = heroCards[0].offsetWidth;
+          const gapMatch = window.getComputedStyle(heroCardsRow).gap.match(/(\d+)/);
+          const gap = gapMatch ? parseInt(gapMatch[0]) : 16;
+          
+          heroCardsRow.scrollTo({
+            left: index * (cardWidth + gap),
+            behavior: 'smooth'
+          });
+        } else {
+          updateActiveClasses(index);
+        }
+      });
+    });
+  }
 });

@@ -350,11 +350,11 @@ footer {
 .hero {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  gap: 0;
-  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 140px 2.5rem 40px;
   background-image: url('../assets/images/hero-bg.jpg');
   background-size: cover;
   background-position: center center;
@@ -5759,7 +5759,7 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 760px;
+  max-width: 1000px;
   width: 100%;
   background: transparent !important;
   backdrop-filter: none !important;
@@ -5792,7 +5792,7 @@ footer {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #9B6B21;
-  margin-bottom: 2.8rem;
+  margin-bottom: 1.2rem;
   width: fit-content;
   box-shadow: 0 4px 12px rgba(200, 154, 58, 0.05);
   animation: fadeUp .8s ease both;
@@ -5803,7 +5803,7 @@ footer {
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 400;
   line-height: 1.05;
-  margin-bottom: 1.8rem;
+  margin-bottom: 0.8rem;
   color: var(--ink);
   animation: fadeUp .8s .15s ease both;
   text-transform: none;
@@ -5839,7 +5839,7 @@ footer {
   color: var(--muted);
   line-height: 1.8;
   max-width: 680px;
-  margin: 0 auto 1.6rem;
+  margin: 0 auto 1.2rem;
   font-weight: 300;
   opacity: 0.9;
   text-align: center;
@@ -5854,7 +5854,7 @@ footer {
   letter-spacing: 0.01em;
   line-height: 1.8;
   text-align: center;
-  margin: 0 auto 2.8rem;
+  margin: 0 auto 1rem;
   max-width: 680px;
   opacity: 1;
   white-space: nowrap;
@@ -5874,7 +5874,7 @@ footer {
   justify-content: center !important;
   align-items: center !important;
   gap: 1.2rem !important;
-  margin-bottom: 3.5rem !important;
+  margin-bottom: 2rem !important;
   width: 100% !important;
   animation: fadeUp .8s .45s ease both;
 }
@@ -5950,7 +5950,7 @@ footer {
   justify-content: center !important;
   align-items: center !important;
   gap: 3rem !important;
-  margin-top: 2rem !important;
+  margin-top: 0.5rem !important;
   width: 100% !important;
   animation: fadeUp .8s .6s ease both;
 }
@@ -5985,6 +5985,144 @@ footer {
   background: var(--gold) !important;
   opacity: 0.25 !important;
   display: block !important;
+}
+
+/* Hero Cards Styles */
+/* Hero Cards Styles - Unique 3D Perspective */
+.hero-cards-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin: 1.5rem auto 1rem;
+  width: 100%;
+  max-width: 1200px;
+  perspective: 1200px; /* Enable 3D space */
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 170px;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s, filter 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* 3D Fan-out Effect on Hover */
+@media (min-width: 901px) {
+  .hero-cards-row:hover .hero-card,
+  .hero-cards-row.auto-playing .hero-card {
+    transform: rotateY(20deg) rotateX(5deg) scale(0.9);
+    opacity: 0.6;
+    filter: blur(2px) grayscale(30%);
+  }
+  
+  .hero-cards-row .hero-card:hover,
+  .hero-cards-row.auto-playing .hero-card.active {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.15) translateZ(40px);
+    opacity: 1;
+    filter: blur(0px) grayscale(0%);
+    z-index: 10;
+  }
+  
+  /* Cards to the left of hovered/active card */
+  .hero-cards-row .hero-card:hover ~ .hero-card,
+  .hero-cards-row.auto-playing .hero-card.active ~ .hero-card {
+    transform: rotateY(-20deg) rotateX(5deg) scale(0.9);
+  }
+}
+
+.hero-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(28, 26, 23, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-card:hover img {
+  box-shadow: 0 20px 40px rgba(184, 147, 58, 0.25);
+  border: 1px solid rgba(184, 147, 58, 0.4);
+}
+
+.hero-card-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-card-label i {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.hero-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-carousel-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--beige3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero-carousel-dots .dot.active {
+  background-color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .hero-cards-row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 calc(50% - 85px);
+    padding: 1rem calc(50% - 85px);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hero-cards-row::-webkit-scrollbar {
+    display: none;
+  }
+  .hero-card {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    transform: scale(0.9) translateZ(0);
+    opacity: 0.6;
+    filter: blur(1px) grayscale(20%);
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+  }
+  
+  .hero-card.active {
+    transform: scale(1.1) translateZ(40px);
+    opacity: 1;
+    filter: blur(0px) grayscale(0%);
+    z-index: 10;
+  }
+  
+  .hero-card.active img {
+    box-shadow: 0 15px 30px rgba(184, 147, 58, 0.25);
+    border: 1px solid rgba(184, 147, 58, 0.4);
+  }
 }
 
 /* Floating leaves and animations */
@@ -6436,12 +6574,17 @@ section,
 
   .gallery-categories-nav {
     justify-content: flex-start;
-    gap: 0.7rem;
-    padding-bottom: 0.9rem;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
     margin-bottom: 2rem;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    flex-wrap: nowrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 
   .gallery-categories-nav::-webkit-scrollbar {
@@ -6450,8 +6593,23 @@ section,
 
   .gallery-cat-btn {
     white-space: nowrap;
-    padding: 0.55rem 0.95rem;
-    font-size: 0.74rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.75rem;
+    background: rgba(184, 147, 58, 0.06);
+    border: 1px solid rgba(184, 147, 58, 0.2);
+    border-radius: 30px;
+    flex: 0 0 auto;
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-cat-btn.active {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+  }
+  
+  .gallery-cat-btn .glow-accent {
+    display: none !important;
   }
 
   .gallery-3d-room {
@@ -6775,7 +6933,21 @@ section,
   .footer-col a {
     font-size: 0.85rem;
   }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+  }
 }
+
+/* Fix for mobile hero background visibility */
+@media (max-width: 900px) {
+  .hero-mural {
+    opacity: 0.35;
+    z-index: 0;
+    background-position: center;
+  }
+}
+
 
 /* Safety fix for overall horizontal scrollbar prevention */
 html,
@@ -7629,3 +7801,38 @@ body * {
     justify-content: center;
   }
 }
+
+/* Fix for mobile hero background visibility */
+@media (max-width: 900px) {
+  .hero-mural {
+    opacity: 0.35 !important;
+    z-index: 0 !important;
+    background-position: center !important;
+  }
+}
+
+/* ================================================================ */
+/* RESPONSIVE HERO BACKGROUND UPDATE */
+/* ================================================================ */
+#hero-section {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 768px) {
+  #hero-section {
+    background-image: url('../assets/images/hero-bg.jpg') !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #hero-section {
+    background-image: linear-gradient(rgba(247, 247, 247, 0.75), rgba(247, 247, 247, 0.75)), url('../assets/images/mobile-bg.png') !important;
+  }
+}
+
+/* Hide the old mural since we are applying the background directly */
+.hero-mural {
+  display: none !important;
+}
